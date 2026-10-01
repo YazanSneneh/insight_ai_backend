@@ -1,0 +1,14 @@
+# Web / API
+fastapi==0.141.1
+uvicorn==0.54.0
+httpx==0.28.1
+
+
+# AI / LLM
+openai==3.22.1
+langchain==1.4.3
+langchain-openai==1.6.6
+langgraph==1.2.12
+
+# Utilities
+python-dotenv==1.2.3
