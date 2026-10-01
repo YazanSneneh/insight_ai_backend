@@ -4,9 +4,9 @@ from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
 load_dotenv()
-TOOLS = 
+
 class OpenAIClient():
-    def __init__(self, model_name: str ="gpt-5.6-sol", temperature= 0.5, ):
+    def __init__(self, model_name: str ="gpt-5.6-sol", temperature= 0.5 ):
         self.model = ChatOpenAI(model=model_name, temperature=temperature, model_kwargs= { "tools": [{"type": "web_search"}]})
         self.state = {}
 
