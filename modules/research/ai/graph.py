@@ -3,7 +3,7 @@ from langgraph.graph import StateGraph, START, END
 
 from .state import ResearchState
 from .nodes import research_node
-from .prompts import RESEARCH_SYSTEM_PROMPT
+from ..prompts import RESEARCH_SYSTEM_PROMPT
 
 
 research_graph = StateGraph(ResearchState)
