@@ -25,4 +25,4 @@ def test_research_result(response):
 
 def test_param_empty_research(research_test_client):
     response = research_test_client.get("/api/v1/research/", params={"query": ""})
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_422_UNPROCESSABLE_CONTENT
