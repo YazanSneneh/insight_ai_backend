@@ -6,7 +6,6 @@ from fastapi.testclient import TestClient
 from app.main import app
 
 
-
 @pytest.fixture(scope="module")
 def research_test_client():
     with TestClient(app) as research_test_client:

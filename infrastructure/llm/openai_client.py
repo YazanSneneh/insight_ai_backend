@@ -10,6 +10,9 @@ class OpenAIClient():
         self.model = ChatOpenAI(model=model_name, temperature=temperature, model_kwargs= { "tools": [{"type": "web_search"}]})
         self.state = {}
 
+    def get_model(self):
+         return self.model
+
     async def ainvoke(self, messages: list[BaseMessage]):
         self.state["messages"] = messages
         self.state["result"] = await self.model.ainvoke(self.state["messages"])
