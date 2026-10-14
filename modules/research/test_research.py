@@ -27,3 +27,18 @@ def test_research_result(response):
 def test_param_empty_research(research_test_client):
     response = research_test_client.get("/api/v1/research/", params={"query": ""})
     assert response.status_code == status.HTTP_422_UNPROCESSABLE_CONTENT
+
+def test_research_findings_url(response):
+    data = response.json()
+    findings = data.get("findings")
+
+    url_missing = any("source" not in finding for finding in findings)
+    assert url_missing == False
+
+def test_research_findings_validation(response):
+    data = response.json()
+    assert len(data.get("findings")) == 3
+
+def test_research_sources_validation(response):
+    data = response.json()
+    assert len(data.get("sources")) >=3 and len(data.get("sources")) <= 5
