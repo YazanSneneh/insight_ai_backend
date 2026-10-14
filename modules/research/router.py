@@ -11,4 +11,4 @@ async def research(research_params: Annotated[ResearchRequest, Query()]) -> Rese
     research_service = ResearchService()
     research_result = await research_service.research(research_params.query)
 
-    return ResearchResponse(**research_result)
+    return ResearchResponse(**research_result.model_dump())

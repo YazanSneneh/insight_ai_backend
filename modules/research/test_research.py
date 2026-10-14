@@ -20,7 +20,9 @@ def test_research_status_code(response):
 
 def test_research_result(response):
     data = response.json()
-    assert "result" in data
+    assert {"title", "summary", "findings", "sources"}.issubset(data.keys())
+    assert isinstance(data.get("findings"), list)
+    assert isinstance(data.get("sources"), list)
 
 def test_param_empty_research(research_test_client):
     response = research_test_client.get("/api/v1/research/", params={"query": ""})

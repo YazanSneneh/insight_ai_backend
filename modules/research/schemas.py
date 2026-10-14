@@ -2,18 +2,17 @@ from pydantic import BaseModel, Field
 from typing import TypedDict
 
 
-class Finding(TypedDict):
+class Finding(BaseModel):
     claim: str = Field(..., description="important conclusions")
     explanation: str = Field(..., description="individual important conclusions discovered during research")
 
 
-class Source(TypedDict):
+class Source(BaseModel):
     title: str = Field(..., description="the title of the link")
     url: str = Field(..., description="the url of the web page")
 
 
-class ResearchOutPut(TypedDict):
-    result: str = Field(..., description="The research done by AI model!")
+class ResearchOutPut(BaseModel):
     title: str = Field(..., description="the title of the research")
     summary: str = Field(..., description="the summary section of the research")
     findings: list[Finding] = Field(..., description="the resources links where the research is built from")
