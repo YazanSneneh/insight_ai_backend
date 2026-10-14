@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import TypedDict
 
 
 class Source(BaseModel):
@@ -12,7 +11,7 @@ class Finding(BaseModel):
     source: Source = Field(..., description="the url that back the claim")
 
 
-class ResearchOutPut(BaseModel):
+class ResearchOutput(BaseModel):
     title: str = Field(..., description="the title of the research")
     summary: str = Field(..., description="the summary section of the research")
     findings: list[Finding] = Field(..., description="the resources links where the research is built from", max_length=3)
