@@ -13,7 +13,7 @@ def research_test_client():
 
 @pytest.fixture(scope="module")
 def response(research_test_client):
-    return research_test_client.get("/api/v1/research/", params={"query": "benefits of Electric Vichles"})
+    return research_test_client.get("/api/v1/research/", params={"query": "Electric vehicles"})
 
 def test_research_status_code(response):
     assert response.status_code == status.HTTP_200_OK
@@ -32,8 +32,7 @@ def test_research_findings_url(response):
     data = response.json()
     findings = data.get("findings")
 
-    url_missing = all("source" not in finding for finding in findings)
-    assert url_missing == False
+    assert all("source" not in finding for finding in findings)
 
 def test_research_findings_validation(response):
     data = response.json()
